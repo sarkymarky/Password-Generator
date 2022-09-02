@@ -1,27 +1,23 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-function randomInt(min, max) {
-  if (!max) {
-    max = min
-    min = 0
+function randominteger(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
   }
-}
 
  function getRandomItem(list) {
-  return list[randomInt(list.length)]
+  return list[randomInt(randomList)]
 }
   
  function generatePassword() {
   
    while(true) {
 
-
     // user exited the prompt
      if (userInput === null){
       return 
     }
-    var userInput = window.prompt("How long do you want your password to be?")
+	var userInput = window.prompt("How long do you want your password to be?")
      var passwordlength = parseInt(userInput)
 
      if (isNaN(passwordlength)) {
@@ -33,63 +29,66 @@ function randomInt(min, max) {
       }
 
      }
-   var userWantsLC = window.confirm ("Would you like to include Lowercase in your password?")
-   var useruWantsUC = window.confirm ("Would you like to include UpperCase in your password?")
-   var userWantsNUM = window.confirm ("Would you like to include numbers in your password?")
-   var userWantsSYM = window.confirm ("Would you like to include symbols in your password?")
 
-   var lcList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-   var ucList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "o", "p", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-   var numList = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-   var symList = ["!", "@", "#", "$", "%", "^", "&", "*", "_", "|", "{", "}", "+", "=", "-" ]
+	 var userWantsLc = window.confirm ("Would you like to include Lowercase in your password?")
+   var userWantsUpc = window.confirm ("Would you like to include UpperCase in your password?")
+   var userWantsNum = window.confirm ("Would you like to include numbers in your password?")
+   var userWantsSym = window.confirm ("Would you like to include symbols in your password?")
 
-
+   var NUMList = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+   var SYMList = ["!", "@", "#", "$", "%", "^", "&", "*", "_", "|", "{", "}", "+", "=", "-" ]
+   var LCList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+   var UPCList = [["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "o", "p", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]]
+   
    var stack = []
 
-   for (var i = 0; i < lowercaseList.length; i++) {
-    uppercaseList[i] = lowercaseList[i].toUpperCase()
+   for (var i = 0; i < writePassword; i++) {
+    UPCList[i] = LCList[i].toUPC()
    }
 
-   if (userWantsSymbols === true) {
-    stack.push(symList)
+   if (userWantsNum === true){
+    stack.push(NUMList)
    }
 
-   if (userWantsLowerCase === true) {
-    stack.push(lcList)
+   if (userWantsSym === true) {
+    stack.push(SYMList)
    }
 
-   if (userWantsUppercase === true) {
-    stack.push(ucList)
+   if (userWantsLc === true) {
+    stack.push(LCList)
    }
 
-   if (userWantsNumbers === true){
-       stack.push(numList)
+   if (userWantsUpc === true) {
+    stack.push(UPCList)
    }
 
    if (stack.length === 0) {
-    stack.push(lcList)
+   stack.push(LCList)
    }
 
    var generatedPassword = ""
 
    for (var i = 0; i < passwordlength; i++) {
-     var randomList = getRandomItem(list)
+     var randomList = getRandomItem(stack)
      var randomChar = getRandomItem(randomList)
-     generatedPassword += randomChar
+     generatedPassword == randomChar
    }
     
    return generatedPassword
    }
 
-function randominteger(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
- function writePassword(){
- var password = generatePassword();
- var passwordtext = document.querySelector("password");
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
- if (!password) return
- } 
+  if (passwordText) return{
+
+  }
+  if (password) return{
+
+  }
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
