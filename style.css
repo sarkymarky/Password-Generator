@@ -73,6 +73,12 @@ header {
 }
 
 .btn {
+  font-size: 22px;
+  line-height: 22px;
+  margin: 16px 16px 16px 20px;
+  padding: 14px 34px;
+  text-align: center;
+  cursor: pointer;
   border: none;
   background-color: hsl(360, 91%, 36%);
   border-radius: 25px;
@@ -80,12 +86,7 @@ header {
     0px;
   color: hsl(0, 0%, 100%);
   display: inline-block;
-  font-size: 22px;
-  line-height: 22px;
-  margin: 16px 16px 16px 20px;
-  padding: 14px 34px;
-  text-align: center;
-  cursor: pointer;
+  
 }
 
 button[disabled] {
@@ -98,6 +99,13 @@ button[disabled] {
 }
 
 #password {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px dashed #c0c7cf;
+  border-radius: 6px;
+  resize: none;
+  overflow: hidden;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -109,13 +117,7 @@ button[disabled] {
   padding-right: 15px;
   padding-bottom: 85px;
   font-size: 1.2rem;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: 2px dashed #c0c7cf;
-  border-radius: 6px;
-  resize: none;
-  overflow: hidden;
+  
 }
 
 @media (max-width: 690px) {
@@ -125,13 +127,13 @@ button[disabled] {
     padding: 10px 15px;
   }
 
+  @media (max-width: 500px) {
+    .btn {
+      font-size: 0.8rem;
+    }
+
   #password {
     font-size: 1rem;
   }
 }
-
-@media (max-width: 500px) {
-  .btn {
-    font-size: 0.8rem;
-  }
-}
+} 
