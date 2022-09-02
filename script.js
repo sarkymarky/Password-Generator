@@ -16,7 +16,7 @@ function randomInt(min, max) {
   
    while(true) {
 
-    
+
     // user exited the prompt
      if (userInput === null){
       return 
@@ -42,38 +42,38 @@ function randomInt(min, max) {
    var numberList = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
    var symbolList = ["!", "@", "#", "$", "%", "^", "&", "*"]
    var lowercaseList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-   var uppercaseList = []
+   var uppercaseList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "o", "p", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
-   var optionsCart = []
+   var stack = []
 
    for (var i = 0; i < lowercaseList.length; i++) {
     uppercaseList[i] = lowercaseList[i].toUpperCase()
    }
 
    if (userWantsNumbers === true){
-    optionsCart.push(numberList)
+       stack.push(numberList)
    }
 
    if (userWantsSymbols === true) {
-    optionsCart.push(symbolList)
+    stack.push(symbolList)
    }
 
    if (userWantsLowerCase === true) {
-    optionsCart.push(lowercaseList)
+    stack.push(lowercaseList)
    }
 
    if (userWantsUppercase === true) {
-    optionsCart.push(uppercaseList)
+    stack.push(uppercaseList)
    }
 
-   if (optionsCart.length === 0) {
-    optionsCart.push(lowercaseList)
+   if (stack.length === 0) {
+    stack.push(lowercaseList)
    }
 
    var generatedPassword = ""
 
    for (var i = 0; i < passwordlength; i++) {
-     var randomList = getRandomItem(optionsCart)
+     var randomList = getRandomItem(list)
      var randomChar = getRandomItem(randomList)
      generatedPassword += randomChar
    }
@@ -81,15 +81,15 @@ function randomInt(min, max) {
    return generatedPassword
    }
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  if (password) {
-  passwordText.value = password;
-  }
+function randominteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+ function writePassword(){
+ var password = generatePassword();
+ var passwordtext = document.querySelector("password");
+
+ if (!password) return
+ } 
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
