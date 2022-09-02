@@ -16,13 +16,12 @@ function randomInt(min, max) {
   
    while(true) {
 
-    var userInput = window.prompt("How long do you want your password to be?")
-
+    
     // user exited the prompt
      if (userInput === null){
       return 
     }
-      
+    var userInput = window.prompt("How long do you want your password to be?")
      var passwordlength = parseInt(userInput)
 
      if (isNaN(passwordlength)) {
@@ -85,7 +84,7 @@ function randomInt(min, max) {
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#pasword");
+  var passwordText = document.querySelector("#password");
 
   if (password) {
   passwordText.value = password;
