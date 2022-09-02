@@ -33,25 +33,21 @@ function randomInt(min, max) {
       }
 
      }
-
-   var userWantsNumbers = window.confirm ("Would you like to include numbers in your password?")
-   var userWantsSymbols = window.confirm ("Would you like to include symbols in your password?")
    var userWantsLowerCase = window.confirm ("Would you like to include Lowercase in your password?")
    var userWantsUppercase = window.confirm ("Would you like to include UpperCase in your password?")
+   var userWantsNumbers = window.confirm ("Would you like to include numbers in your password?")
+   var userWantsSymbols = window.confirm ("Would you like to include symbols in your password?")
 
-   var numberList = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-   var symbolList = ["!", "@", "#", "$", "%", "^", "&", "*"]
    var lowercaseList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
    var uppercaseList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "o", "p", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+   var numberList = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+   var symbolList = ["!", "@", "#", "$", "%", "^", "&", "*"]
+
 
    var stack = []
 
    for (var i = 0; i < lowercaseList.length; i++) {
     uppercaseList[i] = lowercaseList[i].toUpperCase()
-   }
-
-   if (userWantsNumbers === true){
-       stack.push(numberList)
    }
 
    if (userWantsSymbols === true) {
@@ -64,6 +60,10 @@ function randomInt(min, max) {
 
    if (userWantsUppercase === true) {
     stack.push(uppercaseList)
+   }
+
+   if (userWantsNumbers === true){
+       stack.push(numberList)
    }
 
    if (stack.length === 0) {
